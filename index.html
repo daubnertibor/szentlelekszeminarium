@@ -19,17 +19,30 @@ header{position:absolute;inset:0 0 auto;z-index:5}.nav{height:82px;display:flex;
 .green{background:#edf7ef}.points{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.point{padding:20px}.point strong{display:block;color:var(--gd);margin-bottom:3px}
 .timeline{display:grid;gap:11px}.week{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:17px 20px;align-items:center}.date{font-weight:800;color:var(--g);font-size:12px}.week h3{font:700 16px Inter,sans-serif;margin:0}.week p{margin:3px 0 0;color:var(--muted);font-size:13px}.break{background:#f6f0df;border-color:#ead9a9}.break .date{color:#9a7110}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.step{padding:22px 17px}.num{font:600 44px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold)}.step strong{display:block;margin:9px 0 4px}
+
+.speakers{background:#fff}
+.speaker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.speaker{background:linear-gradient(135deg,#fffaf0,#fff);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;align-items:center;gap:17px;min-height:122px}
+.speaker img{width:82px;height:82px;flex:0 0 82px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 3px 12px rgba(38,28,15,.12)}
+.speaker img.monostori{object-position:50% 32%}
+.speaker img.gajer{object-position:50% 28%}
+.speaker img.torok{object-position:50% 28%}
+.speaker img.fabry{object-position:50% 27%}
+.speaker img.riesz{object-position:50% 28%}
+.speaker h3{font:700 17px Inter,sans-serif;color:var(--deep);margin:0 0 3px}
+.speaker p{margin:0;color:var(--red);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+.speaker-note{margin:20px 0 0;color:var(--muted);font-size:13px;text-align:center;font-style:italic}
 .faq{display:grid;gap:11px;max-width:850px}details{padding:17px 19px}summary{cursor:pointer;font-weight:700}
 .cta{background:linear-gradient(135deg,#0b5429,#167a3a);color:#fff;text-align:center}.cta h2{color:#fff;max-width:820px;margin:8px auto 15px}.cta p{max-width:700px;margin:0 auto 26px;color:#ffffffd9}.cta .kicker{color:#ffd77a}
 footer{background:#083e1f;color:#ffffffb8;padding:30px 0;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px}
-@media(max-width:800px){.links{display:none}.hero{min-height:560px;background-position:center center}.hero-link{right:5%;bottom:8%}.hero-note{left:5%;bottom:8%;max-width:240px;font-size:11px}.points{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.links{display:none}.hero{min-height:560px;background-position:center center}.hero-link{right:5%;bottom:8%}.hero-note{left:5%;bottom:8%;max-width:240px;font-size:11px}.points{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.speaker-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}.week{grid-template-columns:1fr;gap:3px}.foot{flex-direction:column}.book{grid-template-columns:1fr!important}.book-cover{min-height:120px!important}.hero{min-height:480px;background-position:center center}.hero-note{left:4%;right:4%;bottom:4%;max-width:none;text-align:center}.hero-link{right:50%;transform:translateX(50%);bottom:18%;white-space:nowrap}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
 <a class="brand" href="#"><img src="logo.png" alt="Szent Margit Plébánia"><span>SZENT MARGIT PLÉBÁNIA</span></a>
-<div class="links"><a href="#mi-ez">Mi ez?</a><a href="#ut">A 9 hét</a><a href="#kerdesek">Kérdések</a><a href="#jelentkezes">Jelentkezés</a></div>
+<div class="links"><a href="#mi-ez">Mi ez?</a><a href="#ut">A 9 hét</a><a href="#eloadok">Előadók</a><a href="#kerdesek">Kérdések</a><a href="#jelentkezes">Jelentkezés</a></div>
 </div></header>
 
 <main>
@@ -64,6 +77,23 @@ footer{background:#083e1f;color:#ffffffb8;padding:30px 0;font-size:11px}.foot{di
 <section><div class="wrap"><div class="head"><div class="kicker">Mire számíthatsz?</div><h2>Nem csak hallgatni fogunk.</h2></div>
 <div class="steps"><div class="step"><div class="num">00</div><strong>Szentmise</strong><span>Minden alkalom előtt 18:00 órától közösen veszünk részt a szentmisén, így már az este elején Isten jelenlétébe érkezünk.</span></div><div class="step"><div class="num">01</div><strong>Dicsőítés & ima</strong><span>Teret adunk Isten jelenlétének.</span></div><div class="step"><div class="num">02</div><strong>Tanítás</strong><span>Hetente egy újabb lépés a hitben.</span></div><div class="step"><div class="num">03</div><strong>Kiscsoport</strong><span>Zárt, bizalmi légkörben oszthatjuk meg, ami bennünk történik.</span></div><div class="step"><div class="num">04</div><strong>Otthoni út</strong><span>Személyes ima és Szentírás-olvasás a hét során.</span></div></div></div></section>
 
+
+<section class="speakers" id="eloadok">
+<div class="wrap">
+<div class="head">
+<div class="kicker">Akik velünk lesznek</div>
+<h2>Tanítások, amelyek<br>új perspektívát adhatnak.</h2>
+<p class="lead">A Szeminárium során több lelkipásztor is szolgál közöttünk tanítással. Az előadók sora még bővülhet.</p>
+</div>
+<div class="speaker-grid">
+<div class="speaker"><img class="portrait monostori" src="monostori.jpg" alt="Monostori László atya"><div><h3>Monostori László atya</h3><p>plébános, Szent Margit Plébánia</p></div></div>
+<div class="speaker"><img class="portrait gajer" src="gajer.jpg" alt="Gájer László atya"><div><h3>Gájer László atya</h3><p>dékán, PPKE Hittudományi Kar</p></div></div>
+<div class="speaker"><img class="portrait torok" src="torok.jpg" alt="Török Csaba atya"><div><h3>Török Csaba atya</h3><p>plébános, Esztergomi Bazilika</p></div></div>
+<div class="speaker"><img class="portrait fabry" src="fabry.jpg" alt="Fábry Kornél püspök atya"><div><h3>Fábry Kornél püspök atya</h3><p>segédpüspök</p></div></div>
+<div class="speaker"><img class="portrait riesz" src="riesz.jpg" alt="Riesz Beni atya"><div><h3>Riesz Beni atya</h3><p>papi életközösség tagja, Szent Mihály Plébánia</p></div></div>
+</div>
+</div>
+</section>
 <section id="kerdesek"><div class="wrap"><div class="head"><div class="kicker">Gyakori kérdések</div><h2>Jó, ha tudod.</h2></div><div class="faq">
 <details><summary>Kell valamire készülnöm?</summary><p>Nem kell előzetesen készülnöd. A legfontosabb, hogy nyitott szívvel érkezz.</p></details>
 <details><summary>Kötelező mind a kilenc alkalmon részt venni?</summary><p>A bevezető alkalom teljesen nyitott. Aki elkezdi a Szemináriumot, attól elköteleződést és a lehető leglelkiismeretesebb részvételt kérjük; indokolt esetben legfeljebb két hiányzás lehetséges.</p></details>
