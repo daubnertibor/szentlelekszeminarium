@@ -32,17 +32,17 @@ header{position:absolute;inset:0 0 auto;z-index:5}.nav{height:82px;display:flex;
 .speaker h3{font:700 17px Inter,sans-serif;color:var(--deep);margin:0 0 3px}
 .speaker p{margin:0;color:var(--red);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
 .speaker-note{margin:20px 0 0;color:var(--muted);font-size:13px;text-align:center;font-style:italic}
-.faq{display:grid;gap:11px;max-width:850px}details{padding:17px 19px}summary{cursor:pointer;font-weight:700}
+.costs{background:#fffaf0}.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.cost-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:17px;align-items:flex-start;min-height:155px;box-shadow:0 8px 25px rgba(70,40,10,.04)}.cost-icon{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#12652f;color:#fff;font:700 12px Inter,sans-serif}.cost-card h3{font:700 17px Inter,sans-serif;color:var(--deep);margin:0 0 7px}.cost-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}.faq{display:grid;gap:11px;max-width:850px}details{padding:17px 19px}summary{cursor:pointer;font-weight:700}
 .cta{background:linear-gradient(135deg,#0b5429,#167a3a);color:#fff;text-align:center}.cta h2{color:#fff;max-width:820px;margin:8px auto 15px}.cta p{max-width:700px;margin:0 auto 26px;color:#ffffffd9}.cta .kicker{color:#ffd77a}
 footer{background:#083e1f;color:#ffffffb8;padding:30px 0;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px}
-@media(max-width:800px){.links{display:none}.hero{min-height:560px;background-position:center center}.hero-link{right:5%;bottom:8%}.hero-note{left:5%;bottom:8%;max-width:240px;font-size:11px}.points{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.speaker-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.links{display:none}.hero{min-height:560px;background-position:center center}.hero-link{right:5%;bottom:8%}.hero-note{left:5%;bottom:8%;max-width:240px;font-size:11px}.points{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.speaker-grid{grid-template-columns:1fr 1fr}.cost-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}.week{grid-template-columns:1fr;gap:3px}.foot{flex-direction:column}.book{grid-template-columns:1fr!important}.book-cover{min-height:120px!important}.hero{min-height:480px;background-position:center center}.hero-note{left:4%;right:4%;bottom:4%;max-width:none;text-align:center}.hero-link{right:50%;transform:translateX(50%);bottom:18%;white-space:nowrap}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
 <a class="brand" href="#"><img src="logo.png" alt="Szent Margit Plébánia"><span>SZENT MARGIT PLÉBÁNIA</span></a>
-<div class="links"><a href="#mi-ez">Mi ez?</a><a href="#ut">A 9 hét</a><a href="#eloadok">Előadók</a><a href="#kerdesek">Kérdések</a><a href="#jelentkezes">Jelentkezés</a></div>
+<div class="links"><a href="#mi-ez">Mi ez?</a><a href="#ut">A 9 hét</a><a href="#eloadok">Előadók</a><a href="#koltsegek">Tudnivalók</a><a href="#kerdesek">Kérdések</a><a href="#jelentkezes">Jelentkezés</a></div>
 </div></header>
 
 <main>
@@ -94,11 +94,33 @@ footer{background:#083e1f;color:#ffffffb8;padding:30px 0;font-size:11px}.foot{di
 </div>
 </div>
 </section>
+<section class="costs" id="koltsegek">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Fontos tudnivalók</div>
+      <h2>A Szeminárium<br>ingyenes.</h2>
+      <p class="lead">Szeretnénk, hogy az anyagiak senkit ne akadályozzanak abban, hogy elinduljon ezen a lelki úton.</p>
+    </div>
+    <div class="cost-grid">
+      <div class="cost-card"><div class="cost-icon">01</div><div><h3>Részvétel</h3><p>A Szentlélek Szemináriumon való részvétel <strong>ingyenes.</strong></p></div></div>
+      <div class="cost-card"><div class="cost-icon">02</div><div><h3>Élet a Lélekben könyv</h3><p>A tanításokat, a tematikát és a kapcsolódó Szentírási szövegeket tartalmazó könyv és segédanyagok ára <strong>7000 Ft</strong>. A könyv az első alkalmak során megvásárolható.</p></div></div>
+      <div class="cost-card"><div class="cost-icon">03</div><div><h3>Adomány</h3><p>A Szeminárium egyéb költségeinek fedezésére <strong>adományokat elfogadunk.</strong> Köszönjük, ha hozzájárulsz a közös alkalmak megvalósulásához.</p></div></div>
+    </div>
+  </div>
+</section>
 <section id="kerdesek"><div class="wrap"><div class="head"><div class="kicker">Gyakori kérdések</div><h2>Jó, ha tudod.</h2></div><div class="faq">
 <details><summary>Kell valamire készülnöm?</summary><p>Nem kell előzetesen készülnöd. A legfontosabb, hogy nyitott szívvel érkezz.</p></details>
 <details><summary>Kötelező mind a kilenc alkalmon részt venni?</summary><p>A bevezető alkalom teljesen nyitott. Aki elkezdi a Szemináriumot, attól elköteleződést és a lehető leglelkiismeretesebb részvételt kérjük; indokolt esetben legfeljebb két hiányzás lehetséges.</p></details>
 <details><summary>Mi történik a hétfői alkalmak között?</summary><p>A közös alkalom témáját otthon folytatjuk személyes imával és Szentírás-olvasással.</p></details>
 <details><summary>Ki jelentkezhet?</summary><p>A jelentkezési űrlapon néhány alapvető adat mellett a keresztségre is rákérdezünk. A részvétellel kapcsolatos részleteket a szervezők a jelentkezés alapján egyeztetik.</p></details>
+
+<details><summary>Mi az a dicsőítés? Kell tudni énekelni hozzá?</summary><p>A dicsőítés Istent dicsérő közös imádság gitáros énekekkel (élőzenével), ezzel kezdjük az alkalmainkat. Bátorítunk, hogy kapcsolódj be az éneklésbe – és ehhez az sem akadály, ha úgy gondolod, hogy nincs jó hangod! ;-) De természetesen nem kötelező énekelni, imádkozhatsz csendben is.</p></details>
+<details><summary>Milyen korosztály lesz? Nem leszek én oda túl öreg / túl fiatal?</summary><p>Az alsó korhatár 16 év, felső korhatár pedig nincs. Általában mindenféle korosztályból és élethelyzetből való emberek vannak a résztvevők között, nem fogsz kilógni! ;-)</p></details>
+<details><summary>Mennyibe kerül?</summary><p>A részvétel ingyenes. A segédanyagok (munkafüzet és egyéb olvasnivalók) költsége <strong>7000 Ft</strong>, amit az első alkalmon lehet befizetni. Ha ez nehézséget okoz, jelezd, és keresünk megoldást; anyagi okok miatt ne maradj távol! A Szeminárium további költségeire adományokat köszönettel fogadunk.</p></details>
+<details><summary>Milyen az a kiscsoportos beszélgetés?</summary><p>A résztvevők 8–10 fős kiscsoportokban beszélik meg az előző hét tapasztalatait, olvasmányait, élményeit. A csoportbeosztás állandó, tehát mindig ugyanazok az emberek ülnek össze, így a Szeminárium végére jobban megismerik egymást. A csoport tagjai az ott elhangzottakat bizalmasan kezelik.</p></details>
+<details><summary>Voltam már korábban Szentlélek Szemináriumon. Érdemes újra eljönnöm?</summary><p>Igen! Ha már korábban is részt vettél ilyenen, akkor tudod, hogy az előadásokon átadott elméleti tudás csak egy része a lelkigyakorlatnak. Fontosabbak azok a lelki történések, felismerések, megtapasztalások, fejlődések, amik az egyéni imaidő és a kiscsoportos beszélgetések során megszületnek az emberben. Isten mindig tartogat valami újat, valami mélyebbet. Gyere el, és tapasztald meg!</p></details>
+<details><summary>Nem voltam elsőáldozó / bérmálkozó. Jelentkezhetek a Szemináriumra?</summary><p>Igen, a beavató szentségek megléte nem előfeltétel a jelentkezéshez. Ha ezek valamelyike kimaradt az életedből, és szeretnéd pótolni, abban is tudunk segíteni; de a Szemináriumra való jelentkezés ettől független.</p></details>
+<details><summary>Nem vagyok megkeresztelve. Jelentkezhetek?</summary><p>Igen. A lelkigyakorlat tanításai feltételeznek bizonyos alapfokú ismeretet a keresztény hitről (pl. hogy egy Isten van, aki három személy: Atya, Fiú és Szentlélek; hogy Isten teremtette a világot; hogy mi az a Biblia, stb.), de ha ez megvan, akkor nem lesz gond az előadások és az elmélkedések megértésével. Ha valamit nem értesz, bátran fordulhatsz a szervezőkhöz, szívesen segítenek!</p></details>
 </div></div></section>
 
 <section class="cta" id="jelentkezes"><div class="wrap"><div class="kicker">Indulj el velünk</div><h2>Lehet, hogy Isten éppen most hív egy lépéssel közelebb.</h2><p>2026. szeptember 21-én 18 órakor találkozunk a bevezető alkalmon. A bevezető teljesen nyitott – ha pedig elindulsz velünk, vállald a kilenc hét közös útját.</p><a class="btn gold" href="https://docs.google.com/forms/d/e/1FAIpQLSdYCyYfH52Nl4ZyNMhkSO9PCK9loFz4Nvup2AV-o2YvgaJswg/viewform?usp=dialog" target="_blank">JELENTKEZEM A SZEMINÁRIUMRA →</a></div></section>
