@@ -6,7 +6,7 @@ fetch(OLD).then(r=>r.text()).then(html=>{
  const alpek=doc.querySelector(".speaker img.alpek");
  if(alpek) alpek.nextElementSibling.querySelector("p").textContent="káplán, Szent Margit Plébánia";
  const mohos=doc.querySelector(".speaker img.mohos");
- if(mohos){ mohos.src=MOHOS; mohos.style.objectFit="contain"; mohos.style.background="#eee"; }
+ if(mohos){ mohos.src=MOHOS; mohos.style.objectFit="cover"; mohos.style.background="#eee"; }
  document.documentElement.replaceWith(doc.documentElement);
 }).catch(console.error);
 </script></body></html>
