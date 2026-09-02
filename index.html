@@ -1,12 +1,12 @@
 <!doctype html><html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Élet a Lélekben | Szent Margit Plébánia</title></head><body><script>
 const OLD="https://raw.githubusercontent.com/daubnertibor/szentlelekszeminarium/4648a145b563034ac66e5e7ad600ad782a3892c6/index.html";
+const MOHOS="https://katolikus.hu/media/mohos_esztergom_segedpp_2020.jpg";
 fetch(OLD).then(r=>r.text()).then(html=>{
  const doc=new DOMParser().parseFromString(html,"text/html");
  const alpek=doc.querySelector(".speaker img.alpek");
  if(alpek) alpek.nextElementSibling.querySelector("p").textContent="káplán, Szent Margit Plébánia";
- const css=doc.createElement("style");
- css.textContent=".speaker img.mohos{object-fit:contain!important;background:#eee}";
- doc.head.appendChild(css);
+ const mohos=doc.querySelector(".speaker img.mohos");
+ if(mohos){ mohos.src=MOHOS; mohos.style.objectFit="contain"; mohos.style.background="#eee"; }
  document.documentElement.replaceWith(doc.documentElement);
 }).catch(console.error);
 </script></body></html>
