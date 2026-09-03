@@ -1,12 +1,21 @@
 <!doctype html><html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Élet a Lélekben | Szent Margit Plébánia</title></head><body><script>
 const OLD="https://raw.githubusercontent.com/daubnertibor/szentlelekszeminarium/4648a145b563034ac66e5e7ad600ad782a3892c6/index.html";
 const MOHOS="https://katolikus.hu/media/mohos_esztergom_segedpp_2020.jpg";
+const DOMONKOS="https://www.esztergomi-ersekseg.hu/uploads/nevtar/3497/kepek/c_rieszdomonkos.jpg";
 fetch(OLD).then(r=>r.text()).then(html=>{
  const doc=new DOMParser().parseFromString(html,"text/html");
  const alpek=doc.querySelector(".speaker img.alpek");
  if(alpek) alpek.nextElementSibling.querySelector("p").textContent="káplán, Szent Margit Plébánia";
  const mohos=doc.querySelector(".speaker img.mohos");
  if(mohos){ mohos.src=MOHOS; mohos.style.objectFit="cover"; mohos.style.background="#eee"; }
+ const grid=doc.querySelector(".speaker-grid");
+ if(grid && !grid.querySelector(".riesz-domonkos")){
+   const card=doc.createElement("div");
+   card.className="speaker";
+   card.innerHTML='<img class="riesz-domonkos" src="'+DOMONKOS+'" alt="Riesz Domonkos atya"><div><h3>Riesz Domonkos atya</h3><p>káplán, Bp.-Kispesti Nagyboldogasszony Főplébánia</p></div>';
+   const beni=Array.from(grid.querySelectorAll(".speaker h3")).find(h=>h.textContent.includes("Riesz Beni"));
+   if(beni) grid.insertBefore(card,beni.closest(".speaker")); else grid.appendChild(card);
+ }
  document.documentElement.replaceWith(doc.documentElement);
 }).catch(console.error);
 </script></body></html>
