@@ -9,6 +9,41 @@ fetch(OLD).then(r=>r.text()).then(html=>{
  const mohos=doc.querySelector(".speaker img.mohos");
  if(mohos){mohos.src=MOHOS;mohos.style.objectFit="cover";mohos.style.objectPosition="50% 100%";mohos.style.background="#eee";}
  doc.querySelectorAll("*").forEach(el=>{if(el.children.length===0&&el.textContent.includes("7000 Ft"))el.textContent=el.textContent.replaceAll("7000 Ft","1700 Ft");});
+
+// --- Csatlakozási lehetőség az első alkalomig ---
+const style=doc.createElement("style");
+style.textContent=\`
+.join-banner{background:linear-gradient(135deg,#f6c453,#e98a25);color:#fff8e7;padding:28px 32px;margin:0 auto;max-width:1180px;border-radius:22px;box-shadow:0 14px 35px rgba(80,45,10,.14);position:relative;z-index:2}
+.join-banner .join-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.join-banner .join-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.9;margin-bottom:8px}
+.join-banner h2{margin:0 0 8px;font-size:clamp(25px,3vw,38px);line-height:1.05;color:#fff8e7}
+.join-banner p{margin:0;max-width:760px;font-size:16px;line-height:1.55;color:#fffaf0}
+.join-banner strong{color:#fff}
+.join-banner .join-note{margin-top:10px;font-size:13px;opacity:.9}
+.join-banner .join-btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;background:#fff;color:#a75b14;text-decoration:none;font-weight:800;letter-spacing:.05em;padding:14px 20px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.join-banner .join-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(50,25,0,.18)}
+@media(max-width:720px){.join-banner{margin:0 18px;padding:24px}.join-banner .join-inner{display:block}.join-banner .join-btn{margin-top:18px;width:100%}}
+\`;
+doc.head.appendChild(style);
+const hero=doc.querySelector(".hero");
+if(hero&&!doc.querySelector(".join-banner")){
+ const banner=doc.createElement("section");
+ banner.className="join-banner";
+ banner.innerHTML=\`
+ <div class="join-inner">
+   <div>
+     <div class="join-kicker">Még most is csatlakozhatsz!</div>
+     <h2>Ha a bevezető alkalomról lemaradtál, az első találkozón még várunk!</h2>
+     <p>A Szentlélek Szeminárium már elindult, de <strong>szeptember 28-án még bekapcsolódhatsz.</strong></p>
+     <p class="join-note">A részvétel regisztrációhoz kötött. A jelentkezés addig nyitott, amíg a rendelkezésre álló létszámkeretet el nem érjük.</p>
+   </div>
+   <a class="join-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdYCyYfH52Nl4ZyNMhkSO9PCK9loFz4Nvup2AV-o2YvgaJswg/viewform?usp=dialog" target="_blank">REGISZTRÁLOK →</a>
+ </div>\`;
+ hero.insertAdjacentElement("afterend",banner);
+}
+const heroInfo=doc.querySelector(".hero-info p");
+if(heroInfo) heroInfo.textContent="A bevezető alkalom lezajlott. Ha most csatlakoznál, az első találkozón még szeretettel várunk.";
+
  const grid=doc.querySelector(".speaker-grid");
  if(grid&&!grid.querySelector(".riesz-domonkos")){
   const card=doc.createElement("div");card.className="speaker riesz-domonkos";
