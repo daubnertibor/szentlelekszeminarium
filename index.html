@@ -21,8 +21,15 @@ if(hero&&!doc.querySelector(".join-banner")){
  banner.innerHTML="<div class=\"join-inner\"><div><div class=\"join-kicker\">Még most is csatlakozhatsz!</div><h2>Ha a bevezető alkalomról lemaradtál, az első találkozón még várunk!</h2><p>A Szentlélek Szeminárium már elindult, de <strong>szeptember 28-án még bekapcsolódhatsz.</strong></p><p class=\"join-note\">A részvétel regisztrációhoz kötött. A jelentkezés addig nyitott, amíg a rendelkezésre álló létszámkeretet el nem érjük.</p></div><a class=\"join-btn\" href=\"https://docs.google.com/forms/d/e/1FAIpQLSdYCyYfH52Nl4ZyNMhkSO9PCK9loFz4Nvup2AV-o2YvgaJswg/viewform?usp=dialog\" target=\"_blank\">REGISZTRÁLOK →</a></div>";
  hero.insertAdjacentElement("afterend",banner);
 }
+// Mobil nézet és aktuális dátum finomhangolása
+const responsive=doc.createElement("style");
+responsive.textContent="@media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:28px;padding:90px 0 55px;width:min(100% - 40px,1120px)}.hero-info{justify-self:stretch;align-self:auto;text-align:left;max-width:none}.datebox{width:100%;box-sizing:border-box;text-align:center}.datebox strong{font-size:38px}.hero-info p{font-size:14px;text-align:left;margin-top:14px}.join-banner{margin-top:0}}@media(max-width:520px){.hero-grid{gap:24px;padding:72px 0 45px;width:calc(100% - 40px)}.hero{min-height:0}.hero-copy .lead{font-size:17px;line-height:1.5}.hero .quote{font-size:23px}.hero-info{width:100%}.datebox strong{font-size:34px}.datebox span{font-size:13px}.join-banner{margin:0 12px;border-radius:18px}.join-banner h2{font-size:27px}.join-banner p{font-size:15px}}";
+doc.head.appendChild(responsive);
 const heroInfo=doc.querySelector(".hero-info p");
-if(heroInfo) heroInfo.textContent="A bevezető alkalom lezajlott. Ha most csatlakoznál, az első találkozón még szeretettel várunk.";
+const dateBox=doc.querySelector(".datebox");
+if(dateBox){dateBox.querySelector("strong").textContent="2026. szeptember 28.";dateBox.querySelector("span").textContent="HÉTFŐ · 18:00";}
+
+if(heroInfo) heroInfo.textContent="A bevezető alkalomról lemaradtál? Az első találkozón, szeptember 28-án még szeretettel várunk."
 
 const grid=doc.querySelector(".speaker-grid");
  if(grid&&!grid.querySelector(".riesz-domonkos")){
