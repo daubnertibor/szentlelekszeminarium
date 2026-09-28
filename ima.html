@@ -25,7 +25,7 @@ main{padding:65px 0 85px}.intro{text-align:center;max-width:720px;margin:0 auto 
 <div class="card"><div class="icon">🌹</div><h2>Üdvözlégy</h2><div class="number" id="udvozlegyTotal">–</div><div class="controls"><button type="button" data-action="minus" data-type="udvozlegy">−</button><span id="udvozlegySelected">0</span><button type="button" data-action="plus" data-type="udvozlegy">+</button></div></div>
 </div>
 <div class="turnstile-wrap">
-  <div id="turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAAFGkZB0vi5gpnyMv" data-callback="turnstileSolved" data-expired-callback="turnstileExpired" data-error-callback="turnstileError"></div>
+  <div id="turnstile"></div>
 </div>
 <button class="submit" id="submit" type="button" disabled>FELAJÁNLOM AZ IMÁIMAT</button>
 <div class="message" id="message" aria-live="polite"></div>
@@ -35,11 +35,27 @@ main{padding:65px 0 85px}.intro{text-align:center;max-width:720px;margin:0 auto 
 </div></main>
 <script>
 const API="https://ywstjyhqocidplazkrid.supabase.co/functions/v1/prayer-counter";
+const TURNSTILE_SITEKEY="0x4AAAAAAFGkZB0vi5gpnyMv";
 const selected={miatyank:0,udvozlegy:0};
 let turnstileToken="";
+let turnstileWidgetId=null;
+function initTurnstile(){
+  if(!window.turnstile || turnstileWidgetId!==null)return;
+  turnstileWidgetId=window.turnstile.render("#turnstile",{
+    sitekey:TURNSTILE_SITEKEY,
+    theme:"light",
+    size:"flexible",
+    language:"hu",
+    callback:turnstileSolved,
+    "expired-callback":turnstileExpired,
+    "error-callback":turnstileError
+  });
+}
+window.addEventListener("load",initTurnstile);
 function turnstileSolved(token){turnstileToken=token;el("submit").disabled=false;}
 function turnstileExpired(){turnstileToken="";el("submit").disabled=true;}
 function turnstileError(){turnstileToken="";el("submit").disabled=true;el("message").textContent="Az ellenőrzés nem sikerült. Kérlek, próbáld újra.";}
+setTimeout(()=>{if(!window.turnstile)el("message").textContent="A biztonsági ellenőrzés nem töltődött be. Kérlek, frissítsd az oldalt.";},8000);
 const el=id=>document.getElementById(id);
 function renderSelected(){el("miatyankSelected").textContent=selected.miatyank;el("udvozlegySelected").textContent=selected.udvozlegy;}
 function renderTotals(data){el("miatyankTotal").textContent=Number(data.miatyank).toLocaleString("hu-HU");el("udvozlegyTotal").textContent=Number(data.udvozlegy).toLocaleString("hu-HU");el("total").textContent=(Number(data.miatyank)+Number(data.udvozlegy)).toLocaleString("hu-HU");}
@@ -49,5 +65,5 @@ el("submit").addEventListener("click",async()=>{if(selected.miatyank+selected.ud
 load();
 setInterval(load,30000);
 </script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </body></html>
