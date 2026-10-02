@@ -58,7 +58,7 @@ async function load(){try{
  cards.querySelectorAll(".pray").forEach(b=>b.addEventListener("click",()=>pray(b)));
  }catch(e){cards.innerHTML='<div class="empty">Az Imafal átmenetileg nem érhető el. Kérlek, próbáld újra később.</div>'}}
 async function pray(btn){btn.disabled=true;try{
- const r=await fetch(API,{method:"POST",headers:{...headers,"Prefer":"return=representation"},body:JSON.stringify({intention_id:Number(btn.dataset.id),visitor_hash:visitorToken()})});
+ const r=await fetch(API,{method:"POST",headers:{...headers,"Prefer":"return=minimal"},body:JSON.stringify({intention_id:Number(btn.dataset.id),visitor_hash:visitorToken()})});
  if(r.status===409){btn.classList.add("done");btn.textContent="✓ Már imádkozol érte";return}
  if(!r.ok)throw new Error();
  btn.classList.add("done");btn.textContent="✓ Imámban hordozom";await load();
